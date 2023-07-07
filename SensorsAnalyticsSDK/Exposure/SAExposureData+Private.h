@@ -24,10 +24,11 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface SAExposureData (Private)
 
-@property (nonatomic, copy) NSString *exposureIdentifier;
-@property (nonatomic, copy) NSString *event;
 @property (nonatomic, copy) SAExposureConfig *config;
 @property (nonatomic, copy) NSDictionary *properties;
+
+/// updated properties from method updateExposure:withProperties:
+@property (nonatomic, copy) NSDictionary *updatedProperties;
 
 @end
 

@@ -1,9 +1,9 @@
 //
-// SAFlushHTTPBodyInterceptor.h
+// SAExposureListener.h
 // SensorsAnalyticsSDK
 //
-// Created by 张敏超🍎 on 2022/4/11.
-// Copyright © 2015-2022 Sensors Data Co., Ltd. All rights reserved.
+// Created by 陈玉国 on 2023/4/18.
+// Copyright © 2015-2023 Sensors Data Co., Ltd. All rights reserved.
 //
 // Licensed under the Apache License, Version 2.0 (the "License");
 // you may not use this file except in compliance with the License.
@@ -18,13 +18,16 @@
 // limitations under the License.
 //
 
-#import "SAInterceptor.h"
+#import <UIKit/UIKit.h>
+@class SAExposureData;
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface SAFlushHTTPBodyInterceptor : SAInterceptor
+@protocol SAExposureListener <NSObject>
 
-- (NSDictionary *)buildBodyWithFlowData:(SAFlowData *)flowData;
+@optional
+- (BOOL)shouldExpose:(UIView *)view withData:(SAExposureData *)data;
+- (void)didExpose:(UIView *)view withData:(SAExposureData *)data;
 
 @end
 
